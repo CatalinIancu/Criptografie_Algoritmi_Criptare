@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Algoritm Huffman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body style="background-color:silver">
+<div style="width: 1000px;margin:auto;text-align:center">
+    <h3 style="text-align:left">Introduceti textul pe care doriti sa il analizati: </h3>
+    <div class="form-floating">
+        <textarea class="form-control" id="floatingTextarea"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea"></label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark" onclick="ProcesareText()" style="float:left">Analizeaza text</button>
+    <br>
+    <br>
+    <h3 style="text-align:left">Date obtinute: </h3>
+    <table id="alfabet" class="table table-dark">
+        <thead>
+        <th>Litera</th>
+        <th>Frecventa</th>
+        <th>Probabilitate de aparitie</th>
+        <th>Cod Huffman</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="literaA"></td>
+            <td id="frecventaA"></td>
+            <td id="probabilitateA"></td>
+            <td id="huffA"></td>
+        </tr>
+        <tr>
+            <td id="literaĂ">
+            <td id="frecventaĂ">
+            <td id="probabilitateĂ">
+            <td id="huffĂ"></td>
+        </tr>
+        <tr>
+            <td id="literaÂ">
+            <td id="frecventaÂ">
+            <td id="probabilitateÂ">
+            <td id="huffÂ"></td>
+        </tr>
+        <tr>
+            <td id="literaB">
+            <td id="frecventaB">
+            <td id="probabilitateB">
+            <td id="huffB"></td>
+        </tr>
+        <tr>
+            <td id="literaC">
+            <td id="frecventaC">
+            <td id="probabilitateC">
+            <td id="huffC"></td>
+        </tr>
+        <tr>
+            <td id="literaD">
+            <td id="frecventaD">
+            <td id="probabilitateD">
+            <td id="huffD"></td>
+        </tr>
+        <tr>
+            <td id="literaE">
+            <td id="frecventaE">
+            <td id="probabilitateE">
+            <td id="huffE"></td>
+        </tr>
+        <tr>
+            <td id="literaF">
+            <td id="frecventaF">
+            <td id="probabilitateF">
+            <td id="huffF"></td>
+        </tr>
+        <tr>
+            <td id="literaG">
+            <td id="frecventaG">
+            <td id="probabilitateG">
+            <td id="huffG"></td>
+        </tr>
+        <tr>
+            <td id="literaH">
+            <td id="frecventaH">
+            <td id="probabilitateH">
+            <td id="huffH"></td>
+        </tr>
+        <tr>
+            <td id="literaI">
+            <td id="frecventaI">
+            <td id="probabilitateI">
+            <td id="huffI"></td>
+        </tr>
+        <tr>
+            <td id="literaÎ">
+            <td id="frecventaÎ">
+            <td id="probabilitateÎ">
+            <td id="huffÎ"></td>
+        </tr>
+        <tr>
+            <td id="literaJ">
+            <td id="frecventaJ">
+            <td id="probabilitateJ">
+            <td id="huffJ"></td>
+        </tr>
+        <tr>
+            <td id="literaK">
+            <td id="frecventaK">
+            <td id="probabilitateK">
+            <td id="huffK"></td>
+        </tr>
+        <tr>
+            <td id="literaL">
+            <td id="frecventaL">
+            <td id="probabilitateL">
+            <td id="huffL"></td>
+        </tr>
+        <tr>
+            <td id="literaM">
+            <td id="frecventaM">
+            <td id="probabilitateM">
+            <td id="huffM"></td>
+        </tr>
+        <tr>
+            <td id="literaN">
+            <td id="frecventaN">
+            <td id="probabilitateN">
+            <td id="huffN"></td>
+        </tr>
+        <tr>
+            <td id="literaO">
+            <td id="frecventaO">
+            <td id="probabilitateO">
+            <td id="huffO"></td>
+        </tr>
+        <tr>
+            <td id="literaP">
+            <td id="frecventaP">
+            <td id="probabilitateP">
+            <td id="huffP"></td>
+        </tr>
+        <tr>
+            <td id="literaQ">
+            <td id="frecventaQ">
+            <td id="probabilitateQ">
+            <td id="huffQ"></td>
+        </tr>
+        <tr>
+            <td id="literaR">
+            <td id="frecventaR">
+            <td id="probabilitateR">
+            <td id="huffR"></td>
+        </tr>
+        <tr>
+            <td id="literaS">
+            <td id="frecventaS">
+            <td id="probabilitateS">
+            <td id="huffS"></td>
+        </tr>
+        <tr>
+            <td id="literaȘ">
+            <td id="frecventaȘ">
+            <td id="probabilitateȘ">
+            <td id="huffȘ"></td>
+        </tr>
+        <tr>
+            <td id="literaT">
+            <td id="frecventaT">
+            <td id="probabilitateT">
+            <td id="huffT"></td>
+        </tr>
+        <tr>
+            <td id="literaȚ">
+            <td id="frecventaȚ">
+            <td id="probabilitateȚ">
+            <td id="huffȚ"></td>
+        </tr>
+        <tr>
+            <td id="literaU">
+            <td id="frecventaU">
+            <td id="probabilitateU">
+            <td id="huffU"></td>
+        </tr>
+        <tr>
+            <td id="literaV">
+            <td id="frecventaV">
+            <td id="probabilitateV">
+            <td id="huffV"></td>
+        </tr>
+        <tr>
+            <td id="literaW">
+            <td id="frecventaW">
+            <td id="probabilitateW">
+            <td id="huffW"></td>
+        </tr>
+        <tr>
+            <td id="literaX">
+            <td id="frecventaX">
+            <td id="probabilitateX">
+            <td id="huffX"></td>
+        </tr>
+        <tr>
+            <td id="literaY">
+            <td id="frecventaY">
+            <td id="probabilitateY">
+            <td id="huffY"></td>
+        </tr>
+        <tr>
+            <td id="literaZ">
+            <td id="frecventaZ">
+            <td id="probabilitateZ">
+            <td id="huffZ"></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <thead>
+        <th>Date statistice</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="afisajNumarTotalLitere" style="text-align:left"></td>
+        </tr>
+        <tr>
+            <td id="afisajProbabilitateTotala" style="text-align:left"></td>
+        </tr>
+        <tr>
+            <td id="afisajEntropie" style="text-align:left"></td>
+        </tr>
+        <tr>
+            <td id="afisajEficienta" style="text-align:left"></td>
+        </tr>
+        <tr>
+            <td id="afisajRedundanta" style="text-align:left"></td>
+        </tr>
+        <tr>
+            <td id="afisajVerificareTeorema" style="text-align:left"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3 style="text-align:left">Introduceti textul pe care doriti sa il criptati: </h3>
+    <div class="form-floating">
+        <textarea class="form-control" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2"></label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark" onclick="CriptareText()" style="float:left">Cripteaza text</button>
+    <br>
+    <br>
+    <div>
+        <h3 style="text-align:left">Text criptat: </h3>
+        <p style="text-align:left" id = "textCriptat"></p>
+    </div>
+    <br>
+    <h3 style="text-align:left">Introduceti textul pe care doriti sa il decriptati: </h3>
+    <div class="form-floating">
+        <textarea class="form-control" id="floatingTextarea3"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2"></label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark" onclick="DecriptareText()" style="float:left">Decripteaza text</button>
+    <br>
+    <br>
+    <div>
+        <h3 style="text-align:left">Text criptat: </h3>
+        <p style="text-align:left" id = "textDecriptat"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
