@@ -10,12 +10,12 @@
 <div style="width: 1000px;margin:auto;text-align:center">
     <h3 style="text-align:left">Introduceti textul pe care doriti sa il analizati: </h3>
     <div class="form-floating">
-        <textarea class="form-control" id="floatingTextarea2"
+        <textarea class="form-control" id="floatingTextarea"
                   style="height: 100px"></textarea>
-        <label for="floatingTextarea2"></label>
+        <label for="floatingTextarea"></label>
     </div>
     <br>
-    <button type="button" class="btn btn-dark" onclick="procesareText()" style="float:left">Analizeaza text</button>
+    <button type="button" class="btn btn-dark" onclick="ProcesareText()" style="float:left">Analizeaza text</button>
     <br>
     <br>
     <h3 style="text-align:left">Date obtinute: </h3>
@@ -240,6 +240,35 @@
         </tr>
         </tbody>
     </table>
+    <h3 style="text-align:left">Introduceti textul pe care doriti sa il criptati: </h3>
+    <div class="form-floating">
+        <textarea class="form-control" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2"></label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark" onclick="CriptareText()" style="float:left">Cripteaza text</button>
+    <br>
+    <br>
+    <div>
+        <h3 style="text-align:left">Text criptat: </h3>
+        <p style="text-align:left" id = "textCriptat"></p>
+    </div>
+    <br>
+    <h3 style="text-align:left">Introduceti textul pe care doriti sa il decriptati: </h3>
+    <div class="form-floating">
+        <textarea class="form-control" id="floatingTextarea3"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2"></label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark" onclick="DecriptareText()" style="float:left">Decripteaza text</button>
+    <br>
+    <br>
+    <div>
+        <h3 style="text-align:left">Text criptat: </h3>
+        <p style="text-align:left" id = "textDecriptat"></p>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>

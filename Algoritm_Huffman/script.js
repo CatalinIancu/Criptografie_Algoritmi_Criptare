@@ -9,46 +9,57 @@ class Nod {
     }
 }
 
-function procesareText() {
-    let A = new Nod(0, 0, "A", "", "", "");
-    let Ă = new Nod(0, 0, "Ă", "", "", "");
-    let Â = new Nod(0, 0, "Â", "", "", "");
-    let B = new Nod(0, 0, "B", "", "", "");
-    let C = new Nod(0, 0, "C", "", "", "");
-    let D = new Nod(0, 0, "D", "", "", "");
-    let E = new Nod(0, 0, "E", "", "", "");
-    let F = new Nod(0, 0, "F", "", "", "");
-    let G = new Nod(0, 0, "G", "", "", "");
-    let H = new Nod(0, 0, "H", "", "", "");
-    let I = new Nod(0, 0, "I", "", "", "");
-    let Î = new Nod(0, 0, "Î", "", "", "");
-    let J = new Nod(0, 0, "J", "", "", "");
-    let K = new Nod(0, 0, "K", "", "", "");
-    let L = new Nod(0, 0, "L", "", "", "");
-    let M = new Nod(0, 0, "M", "", "", "");
-    let N = new Nod(0, 0, "N", "", "", "");
-    let O = new Nod(0, 0, "O", "", "", "");
-    let P = new Nod(0, 0, "P", "", "", "");
-    let Q = new Nod(0, 0, "Q", "", "", "");
-    let R = new Nod(0, 0, "R", "", "", "");
-    let S = new Nod(0, 0, "S", "", "", "");
-    let Ș = new Nod(0, 0, "Ș", "", "", "");
-    let T = new Nod(0, 0, "T", "", "", "");
-    let Ț = new Nod(0, 0, "Ț", "", "", "");
-    let U = new Nod(0, 0, "U", "", "", "");
-    let V = new Nod(0, 0, "V", "", "", "");
-    let W = new Nod(0, 0, "W", "", "", "");
-    let X = new Nod(0, 0, "X", "", "", "");
-    let Y = new Nod(0, 0, "Y", "", "", "");
-    let Z = new Nod(0, 0, "Z", "", "", "");
+let A = new Nod(0, 0, "A", "", "", "");
+let Ă = new Nod(0, 0, "Ă", "", "", "");
+let Â = new Nod(0, 0, "Â", "", "", "");
+let B = new Nod(0, 0, "B", "", "", "");
+let C = new Nod(0, 0, "C", "", "", "");
+let D = new Nod(0, 0, "D", "", "", "");
+let E = new Nod(0, 0, "E", "", "", "");
+let F = new Nod(0, 0, "F", "", "", "");
+let G = new Nod(0, 0, "G", "", "", "");
+let H = new Nod(0, 0, "H", "", "", "");
+let I = new Nod(0, 0, "I", "", "", "");
+let Î = new Nod(0, 0, "Î", "", "", "");
+let J = new Nod(0, 0, "J", "", "", "");
+let K = new Nod(0, 0, "K", "", "", "");
+let L = new Nod(0, 0, "L", "", "", "");
+let M = new Nod(0, 0, "M", "", "", "");
+let N = new Nod(0, 0, "N", "", "", "");
+let O = new Nod(0, 0, "O", "", "", "");
+let P = new Nod(0, 0, "P", "", "", "");
+let Q = new Nod(0, 0, "Q", "", "", "");
+let R = new Nod(0, 0, "R", "", "", "");
+let S = new Nod(0, 0, "S", "", "", "");
+let Ș = new Nod(0, 0, "Ș", "", "", "");
+let T = new Nod(0, 0, "T", "", "", "");
+let Ț = new Nod(0, 0, "Ț", "", "", "");
+let U = new Nod(0, 0, "U", "", "", "");
+let V = new Nod(0, 0, "V", "", "", "");
+let W = new Nod(0, 0, "W", "", "", "");
+let X = new Nod(0, 0, "X", "", "", "");
+let Y = new Nod(0, 0, "Y", "", "", "");
+let Z = new Nod(0, 0, "Z", "", "", "");
+let litere = [A, Ă, Â, B, C, D, E, F, G, H, I, Î, J, K, L, M, N, O, P, Q, R, S, Ș, T, Ț, U, V, W, X, Y, Z];
+
+function ReseteazaLitere(){
+    for (let i = 0; i < litere.length; i++){
+        litere[i].frv = 0;
+        litere[i].stg = "";
+        litere[i].drp = "";
+        litere[i].huf = "";
+    }
+}
+
+function ProcesareText() {
+    ReseteazaLitere();
 
     let text;
-    let litere = [A, Ă, Â, B, C, D, E, F, G, H, I, Î, J, K, L, M, N, O, P, Q, R, S, Ș, T, Ț, U, V, W, X, Y, Z];
     let counter = 0;
     let totalProbabilitate = 0;
     //console.log("S-a apelat functia");
 
-    text = document.getElementById("floatingTextarea2").value;
+    text = document.getElementById("floatingTextarea").value;
     //console.log(text);
 
     text = text.toUpperCase();
@@ -152,4 +163,53 @@ function procesareText() {
     let meh = entropie + 1;
     let vrf = document.getElementById("afisajVerificareTeorema");
     vrf.innerText = "Verificare teorema: " + entropie + " ≤ " + lungimeTotala + " < " + meh;
+}
+
+function CriptareText(){
+    let text;
+    text = document.getElementById("floatingTextarea2").value.toUpperCase();
+    //console.log(text);
+
+    let textCriptat = "";
+
+    for (let i = 0; i <text.length ;i++){
+        for (let j = 0; j <litere.length ; j++){
+            if (text[i] === litere[j].lit ){
+                textCriptat += ""+litere[j].huf;
+                //console.log(textCriptat);
+            }
+            if (text[i] === " ") {
+                textCriptat += " ";
+                //textCriptat += litere[19].huf;
+            }
+        }
+    }
+    let txtcrpt = document.getElementById("textCriptat");
+    txtcrpt.innerText=textCriptat;
+}
+
+function DecriptareText(){
+    let text;
+    text = document.getElementById("floatingTextarea3").value;
+    //console.log(text);
+
+    let textDecriptat = "";
+    let mostra = "";
+
+    for (let i = 0; i < text.length ;i++){
+        mostra += text[i];
+        for (let j = 0; j < litere.length ; j++){
+            if (mostra === " "){
+                textDecriptat += " ";
+                mostra = "";
+            }
+            if (mostra === litere[j].huf) {
+                textDecriptat += litere[j].lit;
+                mostra = "";
+            }
+        }
+    }
+
+    let txtdecrpt = document.getElementById("textDecriptat");
+    txtdecrpt.innerText=textDecriptat;
 }
