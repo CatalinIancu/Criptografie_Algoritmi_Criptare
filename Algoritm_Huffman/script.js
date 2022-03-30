@@ -162,7 +162,7 @@ function ProcesareText() {
 
     let meh = entropie + 1;
     let vrf = document.getElementById("afisajVerificareTeorema");
-    vrf.innerText = "Verificare teorema: " + entropie + " ≤ " + lungimeTotala + " < " + meh;
+    vrf.innerText = "Verificarea teoremei lui Shannon: " + entropie + " ≤ " + lungimeTotala + " < " + meh;
 }
 
 function CriptareText(){
